@@ -1,27 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace CronBuilder
 {
-    public interface ICronDailyMinuteTimeBuilder
+    public interface ICronDailyMinuteOnlyTimeBuilder
     {
-        ICronDailyHourTimeBuilder At(params Minute[] minutes);
+        string At(params Minute[] minutes);
     }
 
-    internal class CronDailyMinuteTimeBuilder : ICronDailyMinuteTimeBuilder
+    internal class CronDailyMinuteOnlyTimeBuilder : ICronDailyMinuteOnlyTimeBuilder
     {
         private readonly Cron _cron;
 
-        internal CronDailyMinuteTimeBuilder() : this(new Cron())
-        {
-        }
-
-        internal CronDailyMinuteTimeBuilder(Cron cron)
+        internal CronDailyMinuteOnlyTimeBuilder(Cron cron)
         {
             _cron = cron;
         }
 
-        public ICronDailyHourTimeBuilder At(params Minute[] minutes)
+        public string At(params Minute[] minutes)
         {
             if (minutes == null || !minutes.Any())
             {
@@ -33,7 +31,7 @@ namespace CronBuilder
                 .Select(m => ((int)m).ToString())
                 .Aggregate((prev, curr) => $"{prev},{curr}");
 
-            return new CronDailyHourTimeBuilder(_cron);
+            return _cron.ToString();
         }
     }
 }

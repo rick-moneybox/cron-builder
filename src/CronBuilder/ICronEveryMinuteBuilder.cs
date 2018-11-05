@@ -20,7 +20,12 @@ namespace CronBuilder
                 throw new ArgumentException("Minutes must be between 1 and 59 inclusive");
             }
 
-            return $"*/{minutes} * * *";
+            var cron = new Cron
+            {
+                Minute = $"{minutes}"
+            };
+
+            return cron.ToString();
         }
     }
 }

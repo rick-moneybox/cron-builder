@@ -9,8 +9,11 @@ namespace CronBuilder
 
     public class CronEveryHourBuilder : ICronEveryHourBuilder
     {
+        private readonly Cron _cron;
+
         internal CronEveryHourBuilder()
         {
+            _cron = new Cron();
         }
 
         public ICronEveryHourRangeBuilder Every(int hours)
@@ -20,7 +23,9 @@ namespace CronBuilder
                 throw new ArgumentException("'hours' must be between 1 and 23 inclusive");
             }
 
-            throw new NotImplementedException();
+            _cron.Hour = hours.ToString();
+
+            return new CronEveryHourRangeBuilder(_cron);
         }
     }
 }

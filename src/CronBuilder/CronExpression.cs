@@ -6,32 +6,32 @@ namespace CronBuilder
     {
         public static ICronEveryMinuteBuilder Minutes()
         {
-            throw new NotImplementedException();
+            return new CronEveryMinuteBuilder();
         }
 
         public static ICronEveryHourBuilder Hourly()
         {
-            throw new NotImplementedException();
+            return new CronEveryHourBuilder();
         }
 
         public static ICronDailyMinuteTimeBuilder Daily()
         {
-            throw new NotImplementedException();
+            return new CronDailyMinuteTimeBuilder();
         }
 
         public static ICronWeeklyBuilder Weekly()
         {
-            throw new NotImplementedException();
+            return new CronWeeklyBuilder();
         }
 
         public static ICronMonthlyBuilder Monthly()
         {
-            throw new NotImplementedException();
+            return new CronMonthlyBuilder();
         }
 
         public static ICronYearlyBuilder Yearly()
         {
-            throw new NotImplementedException();
+            return new CronYearlyBuilder();
         }
     }
 }
