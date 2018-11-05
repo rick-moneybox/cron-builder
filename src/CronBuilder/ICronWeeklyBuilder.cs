@@ -2,8 +2,8 @@
 {
     public interface ICronWeeklyBuilder
     {
-        ICronDailyTimeBuilder OnAllDays();
+        ICronDailyMinuteTimeBuilder EveryDay();
 
-        ICronDailyTimeBuilder OnDays(params Weekday[] days);
+        ICronDailyMinuteTimeBuilder OnDays(params Weekday[] days);
     }
 }

@@ -11,23 +11,46 @@ namespace CronBuilder.Tests
             var minuteExpression = CronExpression.Minutes()
                 .Every(5);
 
-            var hourlyExpression = CronExpression.Hourly()
-                .Every(1);
+            var hourlyExpression1 = CronExpression.Hourly()
+                .Every(3)
+                .ForAllHours()
+                .At(Minute.Thirty);
+
+            var hourlyExpression2 = CronExpression.Hourly()
+                .Every(1)
+                .Between(Hour.EightAM, Hour.Midday)
+                .At(Minute.Zero);
 
             var dailyExpression = CronExpression.Daily()
-                .At(Hour.Midday, Minute.Zero);
+                .At(Minute.Zero)
+                .At(Hour.Midnight, Hour.Midday);
 
-            var weeklyExpression = CronExpression.Weekly()
+            var weeklyExpression1 = CronExpression.Weekly()
+                .EveryDay()
+                .At(Minute.Zero)
+                .At(Hour.Midday);
+
+            var weeklyExpression2 = CronExpression.Weekly()
                 .OnDays(Weekday.Monday, Weekday.Wednesday, Weekday.Friday)
+                .At(Minute.Zero)
                 .At(Hour.Midday);
 
             var monthlyExpression = CronExpression.Monthly()
                 .On(MonthDay.ThirtyFirst)
-                .At(Hour.TwoPM);
+                .At(Minute.Zero)
+                .At(Hour.Midday);
 
-            var yearlyExpression = CronExpression.Yearly()
-                .On(YearMonth.January, MonthDay.First)
-                .At(Hour.Midnight);
+            var yearlyExpression1 = CronExpression.Yearly()
+                .EveryMonth()
+                .On(MonthDay.First)
+                .At(Minute.Zero)
+                .At(Hour.Midday);
+
+            var yearlyExpression2 = CronExpression.Yearly()
+                .On(YearMonth.January, YearMonth.July)
+                .On(MonthDay.First, MonthDay.Second)
+                .At(Minute.Zero)
+                .At(Hour.Midday);
         }
     }
 }

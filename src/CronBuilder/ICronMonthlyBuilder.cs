@@ -2,6 +2,6 @@
 {
     public interface ICronMonthlyBuilder
     {
-        ICronDailyTimeBuilder On(MonthDay month);
+        ICronDailyMinuteTimeBuilder On(params MonthDay[] day);
     }
 }

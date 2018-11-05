@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq.Expressions;
 
 namespace CronBuilder
 {
@@ -15,7 +14,7 @@ namespace CronBuilder
             throw new NotImplementedException();
         }
 
-        public static ICronDailyTimeBuilder Daily()
+        public static ICronDailyMinuteTimeBuilder Daily()
         {
             throw new NotImplementedException();
         }

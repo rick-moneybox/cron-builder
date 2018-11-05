@@ -2,6 +2,8 @@
 {
     public interface ICronYearlyBuilder
     {
-        ICronDailyTimeBuilder On(YearMonth yearMonth, MonthDay monthDay);
+        ICronMonthlyBuilder On(params YearMonth[] month);
+
+        ICronMonthlyBuilder EveryMonth();
     }
 }
